@@ -33,7 +33,6 @@ const Categories = () => {
 
 export default Categories
 
-
 const styles = StyleSheet.create({
 container: {
   flex: 1,
