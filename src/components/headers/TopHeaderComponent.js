@@ -7,13 +7,13 @@ const TopHeaderComponent = () => {
     <View 
         style={{ 
             width: '100%', 
-            paddingHorizontal: 12,
-            paddingTop: StatusBar.currentHeight +12, 
+            paddingTop: StatusBar.currentHeight + 12, 
             paddingBottom: 12, 
+            paddingHorizontal: 12,
             flexDirection: 'row', 
             alignItems: 'center', 
             justifyContent: 'space-between',
-            backgroundColor: COLORS.main
+            backgroundColor: COLORS.blue
         }}
     >
       <Text style={{ color: '#FFF', fontWeight: '600', fontSize: 22 }}>JuiceUp</Text>

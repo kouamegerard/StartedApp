@@ -5,11 +5,11 @@ import { COLORS } from '../../utils/constants/theme'
 
 const CategoriesComponent = () => {
   return (
-    <View>
+    <View style={{ paddingLeft: 12, }}>
         <FlatList 
             data={categoriesData}
             renderItem={({item}) => (
-                <View style={{ marginHorizontal: 8, paddingVertical: 12, }}>
+                <View style={{ marginRight: 14, paddingVertical: 18, }}>
                     <View
                         style={{ 
                             width: 50,

@@ -85,7 +85,7 @@ const OnboardingScreen = () => {
                 renderNextButton={ () => buttonLabel("Suivant") }
                 onDone={ () => {
                     setGoToHome(true);
-                    navigation.navigate('Home');
+                    navigation.navigate('HomeScreen');
                 }}
             />
         );
