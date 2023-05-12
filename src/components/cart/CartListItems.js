@@ -3,53 +3,55 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { Feather } from '@expo/vector-icons';
 import { COLORS } from '../../utils/constants/theme';
+import cartSlice from '../../store/slicers/cart';
+import { useDispatch } from 'react-redux';
 
 const CartListItems = ({ cartItem }) => {
+  const dispatch = useDispatch();
+  const increaseQuantity = () => {
+    dispatch(
+      cartSlice.actions.changeQuantity({
+        juiceId: cartItem.juice.id,
+        amount: 1,
+      })
+    );
+  };
 
-    const increaseQuantity = () => {
-        // dispatch(
-        //   cartSlice.actions.changeQuantity({
-        //     productId: cartItem.product.id,
-        //     amount: 1,
-        //   })
-        // );
-    };
-
-    const decreaseQuantity = () => {
-    // dispatch(
-    //     cartSlice.actions.changeQuantity({
-    //     productId: cartItem.product.id,
-    //     amount: -1,
-    //     })
-    // );
-    };
-    
-    return (
-        <View style={styles.container}>
-          <Image source={ cartItem.product.image } style={styles.image} />
-          <View style={styles.contentContainer}>
-            <Text style={styles.name}>{cartItem.product.name}</Text>
-            <Text style={styles.size}>Unité: {cartItem.currency}{cartItem.product.price}</Text>
-    
-            <View style={styles.footer}>
-              <Feather
-                onPress={decreaseQuantity}
-                name="minus-circle"
-                size={24}
-                color="gray"
-              />
-              <Text style={styles.quantity}>{cartItem.quantity}</Text>
-              <Feather
-                onPress={increaseQuantity}
-                name="plus-circle"
-                size={24}
-                color="gray"
-              />
-              <Text style={styles.itemTotal}>{cartItem.currency} {cartItem.product.price}</Text>
-            </View>
+  const decreaseQuantity = () => {
+    dispatch(
+        cartSlice.actions.changeQuantity({
+        juiceId: cartItem.juice.id,
+        amount: -1,
+        })
+    );
+  };
+  
+  return (
+      <View style={styles.container}>
+        {/* <Image source={ cartItem.juice.image } style={styles.image} /> */}
+        <View style={styles.contentContainer}>
+          <Text style={styles.name}>{cartItem.juice.name}</Text>
+          <Text style={styles.size}>Unité: {cartItem.currency}{cartItem.juice.price}</Text>
+  
+          <View style={styles.footer}>
+            <Feather
+              onPress={decreaseQuantity}
+              name="minus-circle"
+              size={24}
+              color="gray"
+            />
+            <Text style={styles.quantity}>{cartItem.quantity}</Text>
+            <Feather
+              onPress={increaseQuantity}
+              name="plus-circle"
+              size={24}
+              color="gray"
+            />
+            <Text style={styles.itemTotal}>{cartItem.currency} {cartItem.juice.price}</Text>
           </View>
         </View>
-    );
+      </View>
+  );
 
 }
 

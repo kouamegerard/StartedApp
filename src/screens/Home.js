@@ -5,7 +5,7 @@ import CategoriesComponent from "../components/categories/CategoriesComponent";
 import TitleHeading from "../components/heading/TitleHeading";
 import JucesComponent from "../components/juces/JucesComponent";
 
-const Home = () => {
+const Home = ({navigation}) => {
     return (
         <View 
             style={{ 
@@ -17,7 +17,7 @@ const Home = () => {
             <TopHeaderComponent />
             <CategoriesComponent />
             <TitleHeading label={'Most Popular'} />
-            <JucesComponent />
+            <JucesComponent navigation={navigation} />
         </View>
     );
 }

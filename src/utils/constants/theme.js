@@ -11,6 +11,7 @@ export const COLORS = {
     lightGrey: '#D3D6D6',
     grey: '#C1C0C9',
     blue: '#1a2941',
+    halfLightBlue: '#1a294180',
     yellow: '#F4D03F',
     
 };

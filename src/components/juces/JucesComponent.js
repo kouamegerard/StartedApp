@@ -3,14 +3,27 @@ import React from 'react';
 import { COLORS } from '../../utils/constants/theme'
 import juicesData from '../../data/Juices/juicesData'
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useDispatch, useSelector } from 'react-redux';
+import juicesSlice from '../../store/slicers/juices';
 
-const JucesComponent = () => {
+const JucesComponent = ({navigation}) => {
+
+    const dispatch = useDispatch();
+    const juice = (item) => {
+        dispatch(juicesSlice.actions.setSelectJuice(item.id))
+        navigation.navigate("JuiceDetail", {
+            juiceId: item.id
+        })
+    }
+
+    const juices = useSelector( (state) => state.juices.juices );
+
   return (
     <View>
         <FlatList 
-            data={juicesData}
+            data={juices}
             renderItem={({item}) => (
-                <View 
+                <Pressable 
                     style={{ 
                         marginRight: 14, 
                         marginLeft: 1, 
@@ -21,6 +34,7 @@ const JucesComponent = () => {
                         flexDirection: 'column',
                         justifyContent: 'space-between',
                     }}
+                    onPress={ () => juice(item) }
                 >
                     <Image 
                         source={item.image}
@@ -57,7 +71,7 @@ const JucesComponent = () => {
                             />
                         </Pressable>
                     </View>
-                </View>
+                </Pressable>
             )}
             keyExtractor={(item) => item.id}
             horizontal

@@ -1,15 +1,14 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React from 'react'
 import TopHeaderComponent from '../components/headers/TopHeaderComponent';
-import cartdata from '../data/Cart/cartdata';
 import CartListItems from '../components/cart/CartListItems';
 import { COLORS } from '../utils/constants/theme';
+import { useSelector } from 'react-redux';
+import { delivery, selectSubtotal } from '../store/slicers/cart';
 
 const CartItemsList = () => {
-  // const subtotal = useSelector( selectSubtotal );
-  // const isFreeDelivery = useSelector( delivery );
-  const subtotal = 1200;
-  const isFreeDelivery = 100;
+  const subtotal = useSelector( selectSubtotal );
+  const isFreeDelivery = useSelector( delivery );
   const total = subtotal + isFreeDelivery;
 
   return (
@@ -33,14 +32,15 @@ const CartItemsList = () => {
 const EmptyCart = () => {
   return (
       <View style={styles.cartTotal}>
-        <Text style={{ fontSize: 22, fontWeight: "600", }}>Your cart is empty</Text>
+        <Text style={{ fontSize: 22, fontWeight: "600", color: COLORS.white }}>Your cart is empty</Text>
       </View>
   )
 };
 
 const Cart = () => {
 
-  const cart = cartdata;
+  const cart = useSelector( (state) => state.cart.items );
+  console.log(cart);
 
   return (
     <>
