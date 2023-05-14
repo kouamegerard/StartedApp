@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import juicesData from "../../data/Juices/juicesData";
+import juices from "../../data/Juices/juices";
 
 const initialState = {
-    juices: juicesData,
+    juices: juices,
     selectedJuice: null,
 }
 
@@ -13,7 +13,7 @@ const juicesSlice = createSlice({
         setSelectJuice: ( state, actions ) => {
             const juiceId = actions.payload;
 
-            state.selectedJuice = state.juices.find( (p) => p.id === juiceId )
+            state.selectedJuice = state.juices.find( (j) => j.id === juiceId )
         }
     },
 });

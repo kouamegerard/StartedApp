@@ -4,7 +4,7 @@ import TopHeaderComponent from '../components/headers/TopHeaderComponent';
 import CartListItems from '../components/cart/CartListItems';
 import { COLORS } from '../utils/constants/theme';
 import { useSelector } from 'react-redux';
-import { delivery, selectSubtotal } from '../store/slicers/cart';
+import { delivery, selectSubtotal } from '../store/slicers/cartSlice';
 
 const CartItemsList = () => {
   const subtotal = useSelector( selectSubtotal );
@@ -39,17 +39,22 @@ const EmptyCart = () => {
 
 const Cart = () => {
 
-  const cart = useSelector( (state) => state.cart.items );
-  console.log(cart);
+  const cartItems = useSelector( (state) => state.cart.items );
+  console.log("Cart:::",cartItems);
 
   return (
     <>
       <TopHeaderComponent />
       <FlatList
-        data={cart}
-        renderItem={ ({ item }) => (<CartListItems cartItem={item} />) }
+        data={cartItems}
+        renderItem={ ({ item }) => (
+          <CartListItems cartItem={item} />
+        ) }
         ListEmptyComponent={EmptyCart}
         ListFooterComponent={ CartItemsList }
+        style={{ 
+          marginBottom: 48,
+         }}
       />
     </>
   )

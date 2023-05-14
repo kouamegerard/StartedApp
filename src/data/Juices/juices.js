@@ -14,7 +14,7 @@ export default [
         status: 'New',
         label: 'It\'s back',
         nutrution: '360cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -32,7 +32,7 @@ export default [
         status: 'Old',
         label: 'Original',
         nutrution: '360cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -50,7 +50,7 @@ export default [
         status: 'Old',
         label: 'It\'s back',
         nutrution: '330cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -68,7 +68,7 @@ export default [
         status: 'New',
         label: 'Whilr\'d farmous',
         nutrution: '390cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -86,7 +86,7 @@ export default [
         status: 'Old',
         label: 'Original',
         nutrution: '420 cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -104,7 +104,7 @@ export default [
         status: 'Old',
         label: '',
         nutrution: '450cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -122,7 +122,7 @@ export default [
         status: 'Old',
         label: 'Original',
         nutrution: '730 cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -140,7 +140,7 @@ export default [
         status: 'Old',
         label: 'Limited',
         nutrution: '670 cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -158,7 +158,7 @@ export default [
         status: 'Old',
         label: 'original',
         nutrution: '350cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -176,7 +176,7 @@ export default [
         status: 'Old',
         label: 'Limited',
         nutrution: '330cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -194,7 +194,7 @@ export default [
         status: 'New',
         label: 'Whirl\'d Famous',
         nutrution: '320cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -212,7 +212,7 @@ export default [
         status: 'New',
         label: 'Whirl\'d Famous',
         nutrution: '320cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -230,7 +230,7 @@ export default [
         status: 'New',
         label: 'Whirl\'d Famous',
         nutrution: '320cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
     {
@@ -248,7 +248,7 @@ export default [
         status: 'New',
         label: 'Whirl\'d Famous',
         nutrution: '320cal',
-        price: 8.65,
+        price: 1500,
         currency: 'FCFA',
     },
 ]

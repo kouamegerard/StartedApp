@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { Feather } from '@expo/vector-icons';
 import { COLORS } from '../../utils/constants/theme';
-import cartSlice from '../../store/slicers/cart';
+import cartSlice from '../../store/slicers/cartSlice';
 import { useDispatch } from 'react-redux';
 
 const CartListItems = ({ cartItem }) => {
@@ -19,16 +19,16 @@ const CartListItems = ({ cartItem }) => {
 
   const decreaseQuantity = () => {
     dispatch(
-        cartSlice.actions.changeQuantity({
+      cartSlice.actions.changeQuantity({
         juiceId: cartItem.juice.id,
         amount: -1,
-        })
+      })
     );
   };
   
   return (
       <View style={styles.container}>
-        {/* <Image source={ cartItem.juice.image } style={styles.image} /> */}
+        <Image source={ cartItem.juice.image } style={styles.image} />
         <View style={styles.contentContainer}>
           <Text style={styles.name}>{cartItem.juice.name}</Text>
           <Text style={styles.size}>Unité: {cartItem.currency}{cartItem.juice.price}</Text>
@@ -47,7 +47,10 @@ const CartListItems = ({ cartItem }) => {
               size={24}
               color="gray"
             />
-            <Text style={styles.itemTotal}>{cartItem.currency} {cartItem.juice.price}</Text>
+            <View style={{ marginLeft: 'auto', flexDirection: 'row', }}>
+              <Text style={styles.currencyLabel}>{cartItem.juice.currency}/</Text>
+              <Text style={styles.itemTotal}>{cartItem.juice.price * cartItem.quantity}</Text>
+            </View>
           </View>
         </View>
       </View>
@@ -100,6 +103,12 @@ const styles = StyleSheet.create({
       fontSize: 16,
       marginLeft: "auto",
       fontWeight: "500",
+      color: COLORS.main,
+    },
+    currencyLabel: {
+      fontSize: 10,
+      marginLeft: "auto",
+      fontWeight: "300",
       color: COLORS.main,
     },
 });

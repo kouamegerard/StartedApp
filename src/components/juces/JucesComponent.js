@@ -1,10 +1,11 @@
-import { View, Text, FlatList, Image, Pressable } from 'react-native'
+import { View, Text, FlatList, Image, Pressable, StyleSheet } from 'react-native'
 import React from 'react';
 import { COLORS } from '../../utils/constants/theme'
-import juicesData from '../../data/Juices/juicesData'
+import juicesData from '../../data/Juices/juices'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
 import juicesSlice from '../../store/slicers/juices';
+import cartSlice from '../../store/slicers/cartSlice';
 
 const JucesComponent = ({navigation}) => {
 
@@ -17,6 +18,12 @@ const JucesComponent = ({navigation}) => {
     }
 
     const juices = useSelector( (state) => state.juices.juices );
+
+    const addToCart = () => {
+        dispatch( cartSlice.actions.addCartItem({juice}) );
+        // navigation.navigate("Cart")
+    }
+    // console.log(juices);
 
   return (
     <View>
@@ -48,8 +55,8 @@ const JucesComponent = ({navigation}) => {
                         <View style={{ flexDirection: 'column', flexWrap: 'wrap', gap: 4 }}>
                             <Text style={{ color: COLORS.white, flexWrap: 'wrap', fontSize: 15, }}>{item.name}</Text>
                             <View style={{ flexDirection: 'row', }}>
-                                <Text style={{ color: COLORS.white, fontSize: 18, }}>{item.currency}</Text>
-                                <Text style={{ color: COLORS.white, fontSize: 28, fontWeight: '900' }}>{item.price}</Text>
+                                <Text style={styles.currencyLabel}>{item.currency}/</Text>
+                                <Text style={{ color: COLORS.white, fontSize: 28, fontWeight: '400' }}>{item.price}</Text>
                             </View>
                         </View>
                         <Pressable
@@ -63,6 +70,7 @@ const JucesComponent = ({navigation}) => {
                                 borderColor: COLORS.main,
                                 alignItems: 'center'
                             }}
+                            onPress={ () => add(item) }
                         >
                             <Ionicons 
                                 name="ios-cart-outline" 
@@ -82,3 +90,13 @@ const JucesComponent = ({navigation}) => {
 }
 
 export default JucesComponent;
+
+const styles = StyleSheet.create({
+
+    currencyLabel: {
+        fontSize: 10,
+        marginLeft: "auto",
+        fontWeight: "300",
+        color: COLORS.main,
+    },
+})

@@ -1,6 +1,6 @@
 export default [
     {
-        product: {
+        juice: {
             id: "1",
             name: 'Electric Berry Lemonade',
             image: require("./../../../assets/juces/EBL_smoothie_.png"),
@@ -10,7 +10,7 @@ export default [
         currency: '$',
     },
     {
-        product: {
+        juice: {
             id: "2",
             name: 'Aloha Pineapple',
             image: require("./../../../assets/juces/aloha_pineapple.png"),
@@ -20,7 +20,7 @@ export default [
         currency: '$',
     },
     {
-        product: {
+        juice: {
             id: "3",
             name: 'Caribbean Passion',
             image: require("./../../../assets/juces/caribbean_passion.png"),

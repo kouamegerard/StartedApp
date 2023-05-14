@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, FlatList, useWindowDimensions, Imag
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { COLORS } from '../utils/constants/theme';
-import cartSlice from '../store/slicers/cart';
+import cartSlice from '../store/slicers/cartSlice';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
@@ -10,13 +10,13 @@ const JuiceDetail = ({navigation}) => {
     // const navigation = useNavigation();
     const juice = useSelector( (state) => state.juices.selectedJuice );
     const dispatch = useDispatch();
-    const { width, height } = useWindowDimensions();
+
+    const { width } = useWindowDimensions();
+    
     const addToCart = () => {
         dispatch( cartSlice.actions.addCartItem({juice}) );
         // navigation.navigate("Cart")
-        console.log(juice)
     }
-    console.log(juice);
   return (
     <View style={styles.container}>
         <ScrollView>

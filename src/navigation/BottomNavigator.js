@@ -8,10 +8,15 @@ import Categories from '../screens/Categories';
 import Cart from '../screens/Cart';
 import Juces from '../screens/Juces';
 import Profile from '../screens/Profile';
+import { useSelector } from 'react-redux';
+import { selectNumberOfItems } from '../store/slicers/cartSlice';
 
 const AppBottomNavigator = createBottomTabNavigator();
 
 const BottomNavigator = () => {
+
+    const numberOfCartItems = useSelector(selectNumberOfItems)
+
   return (
     <AppBottomNavigator.Navigator 
         sceneContainerStyle={{ backgroundColor: COLORS.blue }}
@@ -71,7 +76,11 @@ const BottomNavigator = () => {
             name='Cart'
             component={Cart}
             options={{ 
-                tabBarBadge: 1,
+                tabBarBadge: numberOfCartItems,
+                tabBarBadgeStyle:{
+                    backgroundColor: COLORS.main,
+                    marginTop: 10,
+                }
              }}
         />
         <AppBottomNavigator.Screen
