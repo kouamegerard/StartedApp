@@ -54,7 +54,7 @@ const Cart = () => {
         ListFooterComponent={ CartItemsList }
         style={{ 
           marginBottom: 48,
-         }}
+        }}
       />
     </>
   )

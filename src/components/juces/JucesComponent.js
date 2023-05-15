@@ -54,9 +54,9 @@ const JucesComponent = ({navigation}) => {
                     <View style={{ padding: 8, marginTop: 12, flexDirection: 'row', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
                         <View style={{ flexDirection: 'column', flexWrap: 'wrap', gap: 4 }}>
                             <Text style={{ color: COLORS.white, flexWrap: 'wrap', fontSize: 15, }}>{item.name}</Text>
-                            <View style={{ flexDirection: 'row', }}>
-                                <Text style={styles.currencyLabel}>{item.currency}/</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, }}>
                                 <Text style={{ color: COLORS.white, fontSize: 28, fontWeight: '400' }}>{item.price}</Text>
+                                <Text style={styles.currencyLabel}>/{item.currency}</Text>
                             </View>
                         </View>
                         <Pressable
@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
 
     currencyLabel: {
         fontSize: 10,
-        marginLeft: "auto",
         fontWeight: "300",
         color: COLORS.main,
     },
