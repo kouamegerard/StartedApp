@@ -1,7 +1,6 @@
 import { View, Text, FlatList, Image, Pressable, StyleSheet } from 'react-native'
 import React from 'react';
 import { COLORS } from '../../utils/constants/theme'
-import juicesData from '../../data/Juices/juices'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
 import juicesSlice from '../../store/slicers/juices';
@@ -17,10 +16,15 @@ const JucesComponent = ({navigation}) => {
         })
     }
 
+    const juiceAdded = () => {
+        dispatch(juicesSlice.actions.setSelectJuice(item.id))
+        console.log(useSelector( (state) => state.juices.selectedJuice ));
+    }
+
     const juices = useSelector( (state) => state.juices.juices );
 
     const addToCart = () => {
-        dispatch( cartSlice.actions.addCartItem({juice}) );
+        dispatch( cartSlice.actions.addCartItem({juiceAdded}) );
         // navigation.navigate("Cart")
     }
     // console.log(juices);
@@ -54,7 +58,7 @@ const JucesComponent = ({navigation}) => {
                     <View style={{ padding: 8, marginTop: 12, flexDirection: 'row', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
                         <View style={{ flexDirection: 'column', flexWrap: 'wrap', gap: 4 }}>
                             <Text style={{ color: COLORS.white, flexWrap: 'wrap', fontSize: 15, }}>{item.name}</Text>
-                            <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'flex-start', }}>
                                 <Text style={{ color: COLORS.white, fontSize: 28, fontWeight: '400' }}>{item.price}</Text>
                                 <Text style={styles.currencyLabel}>/{item.currency}</Text>
                             </View>
@@ -70,7 +74,7 @@ const JucesComponent = ({navigation}) => {
                                 borderColor: COLORS.main,
                                 alignItems: 'center'
                             }}
-                            onPress={ () => add(item) }
+                            onPress={ () => console.log(":::Added:::") }
                         >
                             <Ionicons 
                                 name="ios-cart-outline" 

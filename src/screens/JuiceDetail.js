@@ -5,6 +5,7 @@ import { COLORS } from '../utils/constants/theme';
 import cartSlice from '../store/slicers/cartSlice';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
+import GoToBackComponent from '../components/headers/GoToBackComponent';
 
 const JuiceDetail = ({navigation}) => {
     // const navigation = useNavigation();
@@ -42,12 +43,8 @@ const JuiceDetail = ({navigation}) => {
                 />
                 {/* Price Content */}
                 <Text style={[styles.price, { position: 'absolute', bottom: 5, left: 18, }]}>{juice.price} {juice.currency}</Text>
-                <Pressable 
-                    style={{ position: 'absolute', top: 45, left: 18, backgroundColor: COLORS.halfLightBlue, borderRadius: 25, width: 25, height: 25, }}
-                    onPress={() => navigation.goBack()}
-                >
-                    <Feather name="arrow-left" size={24} color={COLORS.white} />
-                </Pressable>
+                
+                <GoToBackComponent color={COLORS.white} bgcolor={COLORS.halfLightBlue} position='absolute' />
             </View>
             <View style={{ padding: 20, }}>
                 {/* Title Content */}

@@ -80,12 +80,17 @@ const BottomNavigator = () => {
                 tabBarBadgeStyle:{
                     backgroundColor: COLORS.main,
                     marginTop: 10,
-                }
-             }}
+                },
+            }}
         />
         <AppBottomNavigator.Screen
             name='Juces'
             component={Juces}
+            options={{ 
+                tabBarStyle: {
+                    display: 'none'
+                }
+            }}
         />
         <AppBottomNavigator.Screen
             name='Profile'

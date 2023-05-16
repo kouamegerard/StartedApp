@@ -7,7 +7,7 @@ const TopHeaderComponent = () => {
     <View 
         style={{ 
             width: '100%', 
-            paddingTop: StatusBar.currentHeight + 12, 
+            paddingTop: StatusBar.currentHeight, 
             paddingBottom: 12, 
             paddingHorizontal: 12,
             flexDirection: 'row', 
